@@ -11,7 +11,7 @@ export default async function AppHeader() {
   const user = session?.user?.[0];
 
   return (
-    <Header className="flex items-center justify-between !px-5 !text-white">
+    <Header className="flex items-center justify-between !px-5 !text-white fixed w-full z-10">
       <Image src={Logo} alt="" />
       <div className="flex items-center space-x-3">
         <Avatar

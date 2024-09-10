@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
           <Layout>
             <AppHeader />
             <AppSidebar />
-            <Layout style={{ marginLeft: "200px" }}>
+            <Layout style={{ marginLeft: "200px", marginTop: "64px" }}>
               <Content style={{ minHeight: "calc(100vh - 64px)" }}>
                 {children}
               </Content>
