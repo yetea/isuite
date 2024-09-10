@@ -1,8 +1,26 @@
+"use client";
 import Sider from "antd/es/layout/Sider";
 
 import { Layout, Menu } from "antd";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 export default function AppSidebar() {
+  const pathname = usePathname();
+  const [selectedKey, setSelectedKey] = useState([""]);
+  useEffect(() => {
+    if (pathname === "/") {
+      setSelectedKey(["1"]);
+    } else if (pathname.startsWith("/market-research")) {
+      setSelectedKey(["2"]);
+    } else if (pathname.startsWith("/predictive-analytics")) {
+      setSelectedKey(["3"]);
+    } else if (pathname.startsWith("/risk-assessment")) {
+      setSelectedKey(["4"]);
+    } else if (pathname.startsWith("/customer-feedback")) {
+      setSelectedKey(["5"]);
+    }
+  }, [pathname]);
   return (
     <Layout hasSider>
       <Sider
@@ -15,28 +33,29 @@ export default function AppSidebar() {
         }}
       >
         <Menu
+          selectedKeys={selectedKey}
           mode="inline"
           items={[
             {
-              key: "sub1",
+              key: 1,
               label: <Link href="/">Home</Link>,
             },
             {
-              key: "sub2",
+              key: 2,
               label: <Link href="/market-research">Market Research</Link>,
             },
             {
-              key: "sub3",
+              key: 3,
               label: (
                 <Link href="/predictive-analytics">Predictive Analytics</Link>
               ),
             },
             {
-              key: "sub4",
+              key: 4,
               label: <Link href="/risk-assessment">Risk Assessment</Link>,
             },
             {
-              key: "sub5",
+              key: 5,
               label: <Link href="/customer-feedback">Customer Feedback</Link>,
             },
           ]}
