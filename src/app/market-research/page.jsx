@@ -62,7 +62,6 @@ export default function MarketResearch() {
       setLoading(false); // Stop loading spinner
     }
   };
-  console.log(insightsData);
   const configColumn = {
     data: marketShareData ?? [],
     xField: "month",
