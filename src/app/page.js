@@ -2,13 +2,15 @@ import { auth } from "@/auth";
 
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar } from "antd";
+import Feedback from "./home/feeback";
+import TrendsOverTime from "./home/trends-over-time";
 
 export default async function Home() {
   const session = await auth();
   const user = session?.user?.[0];
 
   return (
-    <section>
+    <>
       <div className="p-5 bg-white flex items-center space-x-5 ">
         <Avatar
           size={64}
@@ -22,6 +24,10 @@ export default async function Home() {
           Good Morning, {user?.name}. Have a nice day!
         </h1>
       </div>
-    </section>
+      <section className="my-5 px-5">
+        <TrendsOverTime />
+        <Feedback />
+      </section>
+    </>
   );
 }
