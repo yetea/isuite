@@ -6,14 +6,14 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Layout } from "antd";
 import { Content } from "antd/es/layout/layout";
 
-export default function RootLayout({ children }) {
+export default function AuthLayout({ children }) {
   return (
-    <html lang="en" className="h-full">
-      <body className="bg-[#d6d6d6] h-full">
-        <AntdRegistry>
+    <>
+      <Layout>
+        <Content style={{ minHeight: "calc(100vh - 64px)" }}>
           {children}
-        </AntdRegistry>
-      </body>
-    </html>
+        </Content>
+      </Layout>
+    </>
   );
 }

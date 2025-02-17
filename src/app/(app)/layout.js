@@ -6,14 +6,18 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Layout } from "antd";
 import { Content } from "antd/es/layout/layout";
 
-export default function RootLayout({ children }) {
+export default function AppLayout({ children }) {
   return (
-    <html lang="en" className="h-full">
-      <body className="bg-[#d6d6d6] h-full">
-        <AntdRegistry>
+    <>
+
+      <AppHeader />
+      <AppSidebar />
+      <Layout style={{ marginLeft: "200px", marginTop: "64px" }}>
+        <Content style={{ minHeight: "calc(100vh - 64px)" }}>
           {children}
-        </AntdRegistry>
-      </body>
-    </html>
+        </Content>
+      </Layout>
+
+    </>
   );
 }

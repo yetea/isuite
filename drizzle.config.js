@@ -6,7 +6,7 @@ export default defineConfig({
   dbCredentials: {
     url: "postgresql://postgres:1q2w3e4r@localhost:5432/isuite",
   },
-    out: "./drizzle",
+  out: "./drizzle",
   verbose: true,
   strict: true,
 });

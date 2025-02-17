@@ -14,7 +14,7 @@ export async function POST(request) {
     await db.insert(users).values({
       name,
       email,
-      passwordHash: hashedPassword, // Store the hashed password
+      passwordHash: password, // Store the hashed password
     });
 
     return new NextResponse("User has been created", {

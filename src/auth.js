@@ -7,6 +7,7 @@ import { eq } from "drizzle-orm";
 
 // Function to fetch user by email from Drizzle DB
 async function getUserByEmail(email) {
+  console.log(email, 'hh');
   const user = await db.select().from(users).where(eq(users.email, email));
   return user;
 }
@@ -31,10 +32,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return null;
           }
           // Compare the input password with the stored hashed password
-          const isPasswordValid = await bcrypt.compare(
-            String(credentials.password),
-            String(user[0].passwordHash),
-          );
+          const isPasswordValid = String(credentials.password) === String(user[0].passwordHash);
           // If the password is invalid, return null (login failure)
           if (!isPasswordValid) {
             console.error("Invalid password.");

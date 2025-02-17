@@ -6,9 +6,9 @@ import Feedback from "./home/feeback";
 import TrendsOverTime from "./home/trends-over-time";
 
 export default async function Home() {
+
   const session = await auth();
   const user = session?.user?.[0];
-
   return (
     <>
       <div className="p-5 bg-white flex items-center space-x-5 ">
